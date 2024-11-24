@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURAPARFUM - Sumergete a la mejor gamma de perfumes del Paraguay.</title>
+    <link rel="stylesheet" href="/static/css/estilos.css">
+    <link rel="shortcut icon" href="/static/images/logo/logo.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a>AURAPARFUM</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="#main-section">Inicio</a>
+                </li>
+                <li>
+                    <a href="#productos-section">Productos</a>
+                </li>
+                <li>
+                    <a href="#nosotros-section">Nosotros</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="/Login">Iniciar Sesión</a>
+                </li>
+                <li>
+                    <a href="/Register">Registrarse</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="main-section" id="main-section">
+            <div class="slogan">
+                <h1>Eleva tu esencia, déjate llevar por el aroma.</h1>
+                <p>Compra en AURAPARFUM, la mejor tienda de perfumeria con sus increibles gamas de perfumes 100% originales.</p>
+            </div>
+        </section>
+        <section class="productos-section" id="productos-section">
+            <div class="productos-container">
+                <h2>Nuestros Productos</h2>
+                <hr>
+                <div class="cards-productos">
+                    {% for perfume in perfumes %}
+                    <a href="/perfume/{{ perfume.id }}" class="card">
+                        <div class="card-info">
+                            <div class="image">
+                                <img src="{{ perfume.imagen }}" alt="perfume {{ perfume.nombre }}">
+                            </div>
+                            <div class="info-perfume">
+                                <h3>{{ perfume.nombre }}</h3>
+                                <p>{{ perfume.descripcion }}</p>
+                            </div>
+                            <div class="precio">
+                                <div>
+                                    <span>Precio</span>
+                                </div>
+                                <div>
+                                    <span>{{ perfume.precio }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <section class="nosotros-section" id="nosotros-section">
+            <hr>
+            <div class="nosotros-container">
+                
+                <h2>¿Quienes somos?</h2>
+                <p>
+                    En AURAPARFUM, llevamos cinco años dedicados a crear experiencias inolvidables a través de fragancias únicas. Desde nuestros inicios, nos hemos comprometido a ofrecer perfumes de alta calidad que capturen la esencia y personalidad de cada uno de nuestros clientes.
+
+                    Ubicados en la estratégica esquina de Av. Venezuela y Tte. Irala, somos más que una perfumería: somos un espacio donde el arte del aroma se une con el cuidado personalizado para brindar lo mejor en el mundo de las fragancias.
+
+                    Nuestra pasión por los perfumes y nuestra atención a los detalles nos han convertido en una referencia en el mercado, gracias a la confianza y fidelidad de nuestros clientes. En AURAPARFUM, trabajamos día a día para que cada esencia cuente una historia y despierte emociones únicas.
+
+                    <br><b>Déjate envolver por nuestra aura.</b>
+                </p>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
